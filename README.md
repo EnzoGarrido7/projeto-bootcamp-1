@@ -1,0 +1,1 @@
+Este projeto foi desenvolvido durante o Bootcamp 1 com o objetivo de criar um site de portfólio pessoal, apresentando minhas habilidades, projetos e informações profissionais de forma moderna e responsiva.
