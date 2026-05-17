@@ -1,0 +1,371 @@
+/* ============================================================
+   Enzo Rodrigo Garrido Aguiló — Portifólio Hub
+   Main Stylesheet
+   Fonts: Playfair Display (headings) + Open Sans (body)
+   Theme colours extracted from original Google Sites theme
+   ============================================================ */
+
+:root {
+  --clr-primary:      rgb(42, 74, 70);     /* dark teal – header / dark sections */
+  --clr-accent:       rgb(11, 100, 90);    /* brighter teal – headings on light bg */
+  --clr-accent-light: rgb(0, 126, 112);    /* hover / active states */
+  --clr-text-dark:    rgb(33, 33, 33);
+  --clr-text-light:   rgb(196, 210, 202);
+  --clr-text-white:   rgb(255, 255, 255);
+  --clr-bg-light:     rgb(255, 255, 255);
+  --clr-divider:      rgb(225, 223, 219);
+  --clr-overlay:      rgba(33, 33, 33, 0.50);
+  --font-display:     'Playfair Display', Georgia, serif;
+  --font-body:        'Open Sans', Arial, sans-serif;
+  --header-h:         64px;
+  --radius:           4px;
+  --transition:       0.25s ease;
+  --max-w:            1080px;
+}
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--clr-text-dark);
+  background: var(--clr-bg-light);
+}
+img { display: block; max-width: 100%; }
+a  { text-decoration: none; color: inherit; }
+
+/* ── Header ─────────────────────────────────────────────────── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--clr-primary);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+.header-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 0 24px;
+}
+.site-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--clr-text-white);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.site-nav {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+.nav-link {
+  color: var(--clr-text-light);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--radius);
+  transition: background var(--transition), color var(--transition);
+  letter-spacing: 0.02em;
+}
+.nav-link:hover,
+.nav-link.active {
+  background: rgba(255,255,255,0.12);
+  color: var(--clr-text-white);
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  margin-left: auto;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--clr-text-white);
+  border-radius: 2px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+/* ── Hero ────────────────────────────────────────────────────── */
+.hero-section {
+  position: relative;
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--clr-primary);
+  background-image: url("https://ssl.gstatic.com/atari/images/label-maker-header-cropped.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 60px 24px;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--clr-overlay);
+}
+.hero-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--clr-accent-light);
+  opacity: 0.3;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 900;
+  color: var(--clr-text-white);
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+}
+
+/* ── Banner ──────────────────────────────────────────────────── */
+.banner-section {
+  width: 100%;
+  overflow: hidden;
+  max-height: 480px;
+  background: var(--clr-primary);
+}
+.banner-img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center top;
+  max-height: 480px;
+}
+
+/* ── Dark Section (Biografia) ────────────────────────────────── */
+.dark-section {
+  background: var(--clr-primary);
+  color: var(--clr-text-light);
+  padding: 72px 24px;
+}
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  color: var(--clr-divider);
+  margin-bottom: 28px;
+  position: relative;
+  padding-bottom: 16px;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 56px;
+  height: 3px;
+  background: var(--clr-accent-light);
+  border-radius: 2px;
+}
+.bio-content {
+  max-width: 760px;
+}
+.bio-content p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--clr-text-light);
+  text-align: center;
+}
+
+/* ── Social Links ────────────────────────────────────────────── */
+.social-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 36px;
+  justify-content: center;
+}
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  transition: transform var(--transition), box-shadow var(--transition);
+  overflow: hidden;
+}
+.social-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+}
+.linkedin-btn {
+  background-color: #2867b2;
+}
+.whatsapp-btn {
+  background: transparent;
+  border: 2px solid var(--clr-text-light);
+}
+
+/* ── Photo Section ───────────────────────────────────────────── */
+.photo-section {
+  background: var(--clr-bg-light);
+  padding: 64px 24px;
+}
+.profile-photo-wrap {
+  display: flex;
+  justify-content: center;
+}
+.profile-photo {
+  width: 100%;
+  max-width: 720px;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(42,74,70,0.18);
+  object-fit: cover;
+}
+
+/* ── Footer ──────────────────────────────────────────────────── */
+.site-footer {
+  background: var(--clr-primary);
+  color: var(--clr-text-light);
+  padding: 24px;
+  text-align: center;
+}
+.footer-inner {
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+/* ── Sub-page hero (smaller) ─────────────────────────────────── */
+.sub-hero {
+  background: var(--clr-primary);
+  padding: 48px 24px 40px;
+  text-align: center;
+}
+.sub-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900;
+  color: var(--clr-text-white);
+}
+
+/* ── Light content section ───────────────────────────────────── */
+.light-section {
+  background: var(--clr-bg-light);
+  padding: 64px 24px;
+}
+.light-section .section-title {
+  color: var(--clr-accent);
+}
+.light-section p,
+.light-section li {
+  color: var(--clr-text-dark);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* ── Cards grid ──────────────────────────────────────────────── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+  margin-top: 36px;
+}
+.card {
+  border: 1px solid var(--clr-divider);
+  border-radius: 8px;
+  padding: 28px 24px;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(42,74,70,0.07);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.card:hover {
+  box-shadow: 0 8px 28px rgba(42,74,70,0.15);
+  transform: translateY(-4px);
+}
+.card h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--clr-accent);
+  margin-bottom: 10px;
+}
+.card p {
+  font-size: 0.92rem;
+  color: var(--clr-text-dark);
+}
+.card .tag {
+  display: inline-block;
+  background: var(--clr-primary);
+  color: var(--clr-text-light);
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-top: 12px;
+}
+
+/* ── Table (Currículo) ───────────────────────────────────────── */
+.cv-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 28px;
+  font-size: 0.95rem;
+}
+.cv-table th {
+  background: var(--clr-primary);
+  color: var(--clr-text-white);
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+}
+.cv-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--clr-divider);
+  vertical-align: top;
+}
+.cv-table tr:last-child td { border-bottom: none; }
+.cv-table tr:hover td { background: rgba(42,74,70,0.04); }
+
+/* ── Slides embed ────────────────────────────────────────────── */
+.embed-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  margin-top: 36px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(42,74,70,0.18);
+}
+.embed-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 680px) {
+  .site-nav { display: none; flex-direction: column; position: absolute; top: var(--header-h); left: 0; right: 0; background: var(--clr-primary); padding: 12px 0; }
+  .site-nav.open { display: flex; }
+  .nav-link { padding: 12px 24px; border-radius: 0; }
+  .hamburger { display: flex; }
+  .header-inner { position: relative; }
+  .site-title { font-size: 1rem; }
+  .hero-section { min-height: 240px; padding: 40px 16px; }
+  .dark-section { padding: 48px 16px; }
+  .bio-content p { font-size: 0.95rem; }
+  .cards-grid { grid-template-columns: 1fr; }
+}
